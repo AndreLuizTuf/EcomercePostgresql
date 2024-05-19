@@ -1,0 +1,34 @@
+<%= form_with(model: fornecedor) do |form| %>
+  <% if fornecedor.errors.any? %>
+    <div style="color: red">
+      <h2>
+        Contém <%= fornecedor.errors.count %> erro(s) para ser resolvidos abaixo:
+      </h2>
+
+      <ul>
+        <% fornecedor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nome, style: "display: block" %>
+    <%= form.text_field :nome, class: "form_control" %>
+  </div>
+
+  <div>
+    <%= form.label :cnpj, style: "display: block" %>
+    <%= form.text_field :cnpj, class: "form_control" %>
+  </div>
+
+  <div>
+    <%= form.label :endereco, style: "display: block" %>
+    <%= form.text_area :endereco, class: "form_control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+  </div>
+<% end %>
